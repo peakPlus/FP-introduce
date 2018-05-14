@@ -103,7 +103,6 @@ fn(() => console.log(123))
 - ## Monad
 - ## Generator
 ## 友情链接
-- <a href="https://www.h5jun.com/" target="_blank">月影博客</a>
 - [月影博客](https://www.h5jun.com/)
 - [知乎文章](https://zhuanlan.zhihu.com/p/21714695)
 - [JavaScript ES6函数式编程入门经典](https://book.douban.com/subject/30180100/)
