@@ -99,3 +99,5 @@ fn(() => console.log(123))
 - ## 函子
 - ## Monad
 - ## Generator
+## 友情链接
+- [月影博客](#https://www.h5jun.com/)
