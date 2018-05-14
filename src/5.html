@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #traffic li {
+            display: block;
+        }
+
+        #traffic span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: gray;
+            border-radius: 50%;
+            margin: 5px;
+        }
+
+        #traffic.stop li:nth-of-type(1) span {
+            background-color: red;
+        }
+
+        #traffic.wait li:nth-of-type(2) span {
+            background-color: yellow;
+        }
+
+        #traffic.pass li:nth-of-type(3) span {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="traffic">
+        <li>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+        </li>
+        <li>
+            <span></span>
+        </li>
+    </ul>
+</body>
+<script>
+    var traffic = document.getElementById('traffic')
+
+    var wait = function(time){
+        return new Promise(function(resolve){
+            setTimeout(resolve, time)
+        })
+    }
+    var setState = function(state){
+        traffic.className = state
+    }
+    var reset = function(){
+        Promise.resolve()
+            .then(setState.bind(null, 'stop'))
+            .then(wait.bind(null, 1000))
+            .then(setState.bind(null, 'wait'))
+            .then(wait.bind(null, 2000))
+            .then(setState.bind(null, 'pass'))
+            .then(wait.bind(null, 3000))
+            .then(reset)
+    }
+    reset()
+</script>
+
+</html>
