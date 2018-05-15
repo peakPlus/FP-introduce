@@ -50,7 +50,7 @@ var traffic = document.getElementById('traffic')
 - 优点：简单粗暴
 
 - 缺点：回调地狱
-### 俊哥：我三年前端经验，就没有写过你这么烂的代码
+### 俊哥：我写了三年js，就没有写过你这么烂的代码
 <img src="../static/img/callback.jpg">
 
 ---
@@ -150,7 +150,7 @@ var wait = poll(() => 1000, () => 2000, () => 3000)
     }, wait())
 })()
 ```
-回调函数更优雅的方式?
+回调函数——更优雅的方式?
 ``` javascript
 var traffic = document.getElementById('traffic')
 var wait = function(time){
