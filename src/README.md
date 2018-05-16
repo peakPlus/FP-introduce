@@ -50,7 +50,7 @@ var traffic = document.getElementById('traffic')
 - 优点：简单粗暴
 
 - 缺点：回调地狱
-### 俊哥：我写了三年js，就没有写过你这么烂的代码
+### 俊哥：我写了三年js，就没有见过过你这么烂的代码
 <img src="../static/img/callback.jpg">
 
 ---
