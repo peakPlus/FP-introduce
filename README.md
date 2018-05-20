@@ -119,7 +119,8 @@ fn(() => console.log(123))
 - 使用**表达式**替代语句
 - 使用**容器与高阶函数**替代多态
 ## 友情链接
-- [underscore.js(JavaScript函数式库)](http://www.css88.com/doc/underscore/)
+- [Ramda.js(JavaScript函数式库)](https://ramdajs.com/docs/)
+- [Underscore.js(JavaScript函数式库)](http://www.css88.com/doc/underscore/)
 - [月影博客(360前端leader)](https://www.h5jun.com/)
 - [知乎函数式编程文章](https://zhuanlan.zhihu.com/p/21714695)
 - [JavaScript ES6函数式编程入门经典](https://book.douban.com/subject/30180100/)
