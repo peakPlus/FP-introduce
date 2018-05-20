@@ -184,7 +184,8 @@ function* ascReadFile() {
 var start = function () {
     let g = ascReadFile()
     setState('stop')
-    g.next().value.then(data => {
+    g.next().value
+    .then(data => {
         setState('wait')
         return g.next().value
     }).then(data => {
