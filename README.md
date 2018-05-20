@@ -104,7 +104,7 @@ let fn = partial(setTimeout, undefined, 3000)
 fn(() => console.log(123))
 // 3秒后输出：123
 ```
-- ## 组合和组合
+- ## 组合和管道
 - ## 函子
 - ## Monad
 - ## Generator
