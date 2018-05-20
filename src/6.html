@@ -1,0 +1,74 @@
+<script>
+    // function* main () {
+    //     let dataOne = yield getDataOne()
+    //     let dataTwo = yield getDataTwo()
+    //     console.log(1 + ':' + dataOne)
+    //     console.log(2 + ':' + dataTwo)
+    // }
+    // let generator = main()
+    // let getDataOne = () => {
+    //     setTimeout(function () {
+    //         generator.next('one')
+    //     }, 1000)
+    // }
+    // let getDataTwo = () => {
+    //     setTimeout(function () {
+    //         generator.next('two')
+    //     }, 1000)
+    // }
+    // generator.next()
+
+    // const fs = require('fs');
+
+    // 对 fs 模块进行 Promise 封装
+    var wait = function (time) {
+        return new Promise(function (resolve) {
+            setTimeout(resolve, time)
+        })
+    }
+    var log = function (value) {
+        console.log(value)
+    }
+    // Promise 的写法
+    // var start = function(){
+    //     Promise.resolve()
+    //     .then(wait.bind(null, 1000))
+    //     .then(log.bind(null, 1000))
+    //     .then(wait.bind(null, 1000))
+    //     .then(log.bind(null, 1000))
+    //     .then(wait.bind(null, 1000))
+    //     .then(log.bind(null, 1000))
+    //     .then(start)
+    // }
+    // start()
+    // // Generator 函数写法
+
+    // function * ascReadFile() {
+    //     yield wait(2000);
+    //     yield wait(2000);
+    //     yield wait(2000);
+    // }
+
+    // let g = ascReadFile();
+    // g.next().value.then(data => {
+    //     log(1000)
+    //     return g.next().value;
+    // }).then(data => {
+    //     log(1000)
+    //     return g.next().value;
+    // }).then(data => {
+    //     log(1000)
+    // })
+
+    // async 函数写法
+    async function asyncReadFile() {
+        let a = await wait(1000);
+        console.log('a')
+        let b = await wait(2000);
+        console.log('b')
+        let c = await wait(3000);
+        console.log('c')
+    }
+    asyncReadFile()
+        // .then()
+</script>

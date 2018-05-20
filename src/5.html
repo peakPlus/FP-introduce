@@ -49,25 +49,57 @@
 </body>
 <script>
     var traffic = document.getElementById('traffic')
-    var wait = function(time){
-        return new Promise(function(resolve){
+    var wait = function (time) {
+        return new Promise(function (resolve) {
             setTimeout(resolve, time)
         })
     }
-    var setState = function(state){
+    var setState = function (state) {
         traffic.className = state
     }
-    var reset = function(){
-        Promise.resolve()
-            .then(setState.bind(null, 'stop'))
-            .then(wait.bind(null, 1000))
-            .then(setState.bind(null, 'wait'))
-            .then(wait.bind(null, 2000))
-            .then(setState.bind(null, 'pass'))
-            .then(wait.bind(null, 3000))
-            .then(reset)
+    // var reset = function(){
+    //     Promise.resolve()
+    //         .then(setState.bind(null, 'stop'))
+    //         .then(wait.bind(null, 1000))
+    //         .then(setState.bind(null, 'wait'))
+    //         .then(wait.bind(null, 2000))
+    //         .then(setState.bind(null, 'pass'))
+    //         .then(wait.bind(null, 3000))
+    //         .then(reset)
+    // }
+    // reset()
+    function* ascReadFile() {
+        yield wait(1000);
+        yield wait(2000);
+        yield wait(3000);
     }
-    reset()
+    var start = function () {
+        let g = ascReadFile();
+        setState('stop')
+        g.next().value
+        .then(data => {
+            setState('wait')
+            return g.next().value;
+        })
+        .then(data => {
+            setState('pass')
+            return g.next().value;
+        })
+        .then(data => {
+            start()
+        })
+    }
+    start()
+    // async function asyncReadFile() {
+    //     setState('stop')
+    //     let a = await wait(1000);
+    //     setState('wait')
+    //     let b = await wait(2000);
+    //      setState('pass')
+    //     let c = await wait(3000);
+    //     asyncReadFile()
+    // }
+    // asyncReadFile()
 </script>
 
 </html>

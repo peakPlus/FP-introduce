@@ -151,6 +151,7 @@ var wait = poll(() => 1000, () => 2000, () => 3000)
 })()
 ```
 回调函数——更优雅的方式?
+- ## Promise
 ``` javascript
 var traffic = document.getElementById('traffic')
 var wait = function(time){
@@ -172,4 +173,39 @@ var reset = function(){
         .then(reset)
 }
 reset()
+```
+- ## Generator
+``` javascript
+function* ascReadFile() {
+    yield wait(1000)
+    yield wait(2000)
+    yield wait(3000)
+}
+var start = function () {
+    let g = ascReadFile()
+    setState('stop')
+    g.next().value.then(data => {
+        setState('wait')
+        return g.next().value
+    }).then(data => {
+        setState('pass')
+        return g.next().value
+    }).then(data => {
+        start()
+    })
+}
+start()
+```
+- ## async / await
+``` javascript
+async function asyncReadFile() {
+    setState('stop')
+    let a = await wait(1000)
+    setState('wait')
+    let b = await wait(2000)
+    setState('pass')
+    let c = await wait(3000)
+    asyncReadFile()
+}
+asyncReadFile()
 ```
